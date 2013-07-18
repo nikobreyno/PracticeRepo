@@ -6,13 +6,13 @@ $oneparent = new Parents();
 
 $oneparent->set_first_name($_POST['first_name']);
 $oneparent->set_last_name($_POST['last_name']);
-$oneparent->set_gender($_POST['gender']);
+if($_POST['gender'] == "1")
+$oneparent->set_gender(1);
+else
+$oneparent->set_gender(2);
 $oneparent->set_blood_type($_POST['blood_type']);
 $oneparent->set_email($_POST['email']);
 $oneparent->set_password($_POST['password']);
-$oneparent->set_parent_image_id($_POST['parent_image_id']);
-$oneparent->set_family_id($_POST['parent_image_id']);
-$oneparent->set_account_status($_POST['account_status']);
 
 if(add_parent($oneparent))
 	echo 'true';

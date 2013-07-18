@@ -31,14 +31,14 @@ function add_parent($parent){
 	$blood_type = $parent->get_blood_type();
 	$parent_image_id = $parent->get_parent_image_id();
 	include 'config/dbconfig.php';
-	$stmt = $db->prepare("INSERT INTO parent(first_name, last_name, gender, email, password, blood_type, parent_image_id, account_stats) VALUES (?,?,?,?,?,?,?,1)");
+	$stmt = $db->prepare("INSERT INTO parent(first_name, last_name, gender, email, password, blood_type, account_status) VALUES (?,?,?,?,?,?,1)");
 	$stmt -> bindParam(1, $first_name);
 	$stmt -> bindParam(2, $last_name);
 	$stmt -> bindParam(3, $gender);
 	$stmt -> bindParam(4, $email);
 	$stmt -> bindParam(5, $encrypted_password);
 	$stmt -> bindParam(6, $blood_type);
-	$stmt -> bindParam(7, $parent_image_id);
+	
 	$stmt -> execute();
 	return true;
 	} catch(PDOException $ex){
@@ -103,16 +103,14 @@ function add_child($child){
 	$birthdate = $child->get_birthdate();
 	$blood_type = $child->get_blood_type();
 	$family_id = $child->get_family_id();
-	$child_image_id = $child->get_child_image_id();
 	include 'config/dbconfig.php';
-	$stmt = $db->prepare("INSERT INTO child (first_name,last_name,gender,birthdate,blood_type,family_id,child_image_id) VALUES (?,?,?,?,?,?,?)");
+	$stmt = $db->prepare("INSERT INTO child (first_name,last_name,gender,birthdate,blood_type,family_id,child_image_id) VALUES (?,?,?,?,?,?)");
 	$stmt -> bindParam(1, $first_name);
 	$stmt -> bindParam(2, $last_name);
 	$stmt -> bindParam(3, $gender);
 	$stmt -> bindParam(4, $birthdate);
 	$stmt -> bindParam(5, $blood_type);
 	$stmt -> bindParam(6, $family_id);
-	$stmt -> bindParam(7, $child_image_id);
 	$stmt -> execute();
 	return true;
 	} catch(PDOException $ex){
@@ -631,7 +629,7 @@ function retrieve_doctor_by_search($key){
 function retrieve_all_post($id){
 	try{
 	include 'config/dbconfig.php';
-	$stmt = $db->prepare("SELECT * FROM post WHERE to_parent_id=?");
+	$stmt = $db->prepare("SELECT * FROM post WHERE to_parent_id=? ORDER BY child_id, post_date DESC");
 	$stmt->bindParam(1,$id);
 	$stmt->execute();
 	$posts = $stmt->fetchAll(PDO::FETCH_OBJ);

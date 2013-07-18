@@ -1,6 +1,6 @@
 <?php
-include 'Model/Parents.php';
-include 'Dbhelper.php';
+include '../Model/Parents.php';
+include '../Dbhelper.php';
 
 $parent = authenticate_user($_POST['username'],$_POST['password']);
 if(empty($parent)){
