@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `healthtime` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `healthtime`;
--- MySQL dump 10.13  Distrib 5.6.10, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.5.16, for Win32 (x86)
 --
 -- Host: localhost    Database: healthtime
 -- ------------------------------------------------------
--- Server version	5.6.10
+-- Server version	5.5.28
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -18,40 +18,31 @@ USE `healthtime`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `medical_history`
+-- Table structure for table `family`
 --
 
-DROP TABLE IF EXISTS `medical_history`;
+DROP TABLE IF EXISTS `family`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `medical_history` (
-  `medical_history_id` int(11) NOT NULL AUTO_INCREMENT,
-  `parent_id` int(11) NOT NULL,
-  `anemia` binary(1) DEFAULT NULL,
-  `asthma` binary(1) DEFAULT NULL,
-  `bleeding_disorder` binary(1) DEFAULT NULL,
-  `diabetes` binary(1) DEFAULT NULL,
-  `epilepsy` binary(1) DEFAULT NULL,
-  `heart_disorder` binary(1) DEFAULT NULL,
-  `high_blood` binary(1) DEFAULT NULL,
-  `high_cholesterol` binary(1) DEFAULT NULL,
-  `liver_disorder` binary(1) DEFAULT NULL,
-  `kidney_disorder` binary(1) DEFAULT NULL,
-  `nasal_allergy` binary(1) DEFAULT NULL,
-  `tuberculosis` binary(1) DEFAULT NULL,
-  PRIMARY KEY (`medical_history_id`),
-  KEY `medical_parent_id_idx` (`parent_id`),
-  CONSTRAINT `medical_parent_id` FOREIGN KEY (`parent_id`) REFERENCES `parent` (`parent_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+CREATE TABLE `family` (
+  `family_id` int(11) NOT NULL AUTO_INCREMENT,
+  `father_id` int(11) NOT NULL,
+  `mother_id` int(11) NOT NULL,
+  PRIMARY KEY (`family_id`),
+  KEY `family_father_id_idx` (`father_id`),
+  KEY `family_mother_id_idx` (`mother_id`),
+  CONSTRAINT `family_father_id` FOREIGN KEY (`father_id`) REFERENCES `parent` (`parent_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `family_mother_id` FOREIGN KEY (`mother_id`) REFERENCES `parent` (`parent_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `medical_history`
+-- Dumping data for table `family`
 --
 
-LOCK TABLES `medical_history` WRITE;
-/*!40000 ALTER TABLE `medical_history` DISABLE KEYS */;
-/*!40000 ALTER TABLE `medical_history` ENABLE KEYS */;
+LOCK TABLES `family` WRITE;
+/*!40000 ALTER TABLE `family` DISABLE KEYS */;
+/*!40000 ALTER TABLE `family` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -63,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-07-15 14:02:23
+-- Dump completed on 2013-07-19  2:33:04
