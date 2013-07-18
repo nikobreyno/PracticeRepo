@@ -724,7 +724,7 @@ function retrieve_shared_by_parent_accounts($id){
 	}
 }
 
-function retrieve_shared_by_parent_accounts($id){
+function retrieve_shared_to_parent_accounts($id){
 	try{
 	include 'config/dbconfig.php';
 	$stmt = $db->prepare("SELECT * FROM sharing WHERE to_parent_id=?");
