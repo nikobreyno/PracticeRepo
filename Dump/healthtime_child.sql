@@ -36,7 +36,7 @@ CREATE TABLE `child` (
   PRIMARY KEY (`child_id`),
   KEY `child_family_id_idx` (`family_id`),
   CONSTRAINT `child_family_id` FOREIGN KEY (`family_id`) REFERENCES `family` (`family_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,6 +45,7 @@ CREATE TABLE `child` (
 
 LOCK TABLES `child` WRITE;
 /*!40000 ALTER TABLE `child` DISABLE KEYS */;
+INSERT INTO `child` VALUES (1,'mat','que',1,'2011-11-11','A',1,NULL),(2,'niko','rerey',1,'2010-10-10','B',1,NULL);
 /*!40000 ALTER TABLE `child` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -57,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-07-19  2:33:42
+-- Dump completed on 2013-07-19  8:25:48

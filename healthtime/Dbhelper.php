@@ -40,12 +40,13 @@ function add_parent($parent){
 	$stmt -> bindParam(6, $blood_type);
 	
 	$stmt -> execute();
-	return true;
+	$result = $db -> lastInsertId();
+	return $result;
 	} catch(PDOException $ex){
 		echo 'error!';
-		return false;
+		return null;
 	}
-	return false;
+	return null;
 }
 
 function activate_parent($parent){
@@ -416,15 +417,15 @@ function delete_post($post){
 function add_sharing($sharing){ 
 	try{
 	$sharing_id = $sharing->get_sharing_id();
-	$from_parent_id = $sharing->get_from_parent_id();
+	$from_family_id = $sharing->get_from_family_id();
 	$to_parent_id = $sharing->get_to_parent_id();
-	$to_child_id = $sharing->get_to_child_id();
+	$child_id = $sharing->get_child_id();
 	$privilege = $sharing->get_privilege();
 	include 'config/dbconfig.php';
-	$stmt = $db->prepare("INSERT INTO sharing (from_parent_id, to_parent_id, to_child_id) VALUES (?,?,?)");
-	$stmt -> bindParam(1, $from_parent_id);
+	$stmt = $db->prepare("INSERT INTO sharing (from_family_id, to_parent_id, child_id) VALUES (?,?,?)");
+	$stmt -> bindParam(1, $from_family_id);
 	$stmt -> bindParam(2, $to_parent_id);
-	$stmt -> bindParam(3, $to_child_id);
+	$stmt -> bindParam(3, $child_id);
 	$stmt -> execute();
 	return true;
 	} catch(PDOException $ex){
@@ -437,9 +438,9 @@ function add_sharing($sharing){
 function delete_sharing($sharing){
 	try{
 	$sharing_id = $sharing->get_sharing_id();
-	$from_parent_id = $sharing->get_from_parent_id();
+	$from_family_id = $sharing->get_from_family_id();
 	$to_parent_id = $sharing->get_to_parent_id();
-	$to_child_id = $sharing->get_to_child_id();
+	$child_id = $sharing->get_child_id();
 	$privilege = $sharing->get_privilege();
 	include 'config/dbconfig.php';
 	$stmt = $db->prepare("DELETE FROM sharing WHERE sharing_id=?");
@@ -456,9 +457,9 @@ function delete_sharing($sharing){
 function edit_sharing($sharing){
 	try{
 	$sharing_id = $sharing->get_sharing_id();
-	$from_parent_id = $sharing->get_from_parent_id();
+	$from_family_id = $sharing->get_from_family_id();
 	$to_parent_id = $sharing->get_to_parent_id();
-	$to_child_id = $sharing->get_to_child_id();
+	$child_id = $sharing->get_child_id();
 	$privilege = $sharing->get_privilege();
 	include 'config/dbconfig.php';
 	$stmt = $db->prepare("UPDATE sharing SET privilege=? WHERE sharing_id=?");
@@ -709,10 +710,10 @@ function retrieve_items($category, $key){
 	}
 }
 
-function retrieve_shared_by_parent_accounts($id){
+function retrieve_shared_by_family_accounts($id){
 	try{
 	include 'config/dbconfig.php';
-	$stmt = $db->prepare("SELECT * FROM sharing WHERE from_parent_id=?");
+	$stmt = $db->prepare("SELECT * FROM sharing WHERE from_family_id=?");
 	$stmt->bindParam(1,$id);
 	$stmt->execute();
 	$parents = $stmt->fetchAll(PDO::FETCH_OBJ);
@@ -722,7 +723,7 @@ function retrieve_shared_by_parent_accounts($id){
 	}
 }
 
-function retrieve_shared_to_parent_accounts($id){
+function retrieve_shared_to_family_accounts($id){
 	try{
 	include 'config/dbconfig.php';
 	$stmt = $db->prepare("SELECT * FROM sharing WHERE to_parent_id=?");

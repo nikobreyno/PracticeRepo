@@ -36,7 +36,7 @@ CREATE TABLE `parent` (
   `family_id` int(11) DEFAULT NULL,
   `account_status` int(11) DEFAULT NULL,
   PRIMARY KEY (`parent_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,7 +45,7 @@ CREATE TABLE `parent` (
 
 LOCK TABLES `parent` WRITE;
 /*!40000 ALTER TABLE `parent` DISABLE KEYS */;
-INSERT INTO `parent` VALUES (1,'Aldrich','Choi',1,'email','password',NULL,NULL,1,NULL),(2,'Juliard','Soriaga',1,'juli','soriaga',NULL,NULL,2,NULL);
+INSERT INTO `parent` VALUES (1,'Aldrich','Choi',1,'email','5f4dcc3b5aa765d61d8327deb882cf99',NULL,NULL,1,NULL),(2,'Juliard','Soriaga',1,'juli','soriaga',NULL,NULL,2,NULL),(3,'juloard','reyno',1,'choichoi','5100e11822ed14fb0a9afc3394b00b3e','A',NULL,NULL,1),(4,'niko','que',1,'corning','857659774af0490b65d62b4f15c74a2a','A',NULL,NULL,1),(5,'nikou','que',1,'corning','857659774af0490b65d62b4f15c74a2a','A',NULL,NULL,1),(6,NULL,NULL,2,NULL,'d41d8cd98f00b204e9800998ecf8427e',NULL,NULL,NULL,1),(7,NULL,NULL,2,NULL,'d41d8cd98f00b204e9800998ecf8427e',NULL,NULL,NULL,1),(8,'nikou','que',1,'corningpp','857659774af0490b65d62b4f15c74a2a','A',NULL,NULL,1),(9,'nikou','que',1,'corningpp','fbbd272dd3dcf5ca5b24c5629d9fba31','A',NULL,NULL,1),(10,'nikou','queu',1,'corningpp','f36123e82cd99065618d09583c3f9ee4','A',NULL,NULL,1),(11,'nikou','queu',1,'corningppbeautifil','f36123e82cd99065618d09583c3f9ee4','A',NULL,NULL,1),(12,'matthew','soriaga',1,'wahoah','b39bb9025313ff165c70a203377c9ab0','A',NULL,NULL,1),(13,'hardgay','ramob',1,'manga','209e6c4e8adad5fa2f9e92b5cc4883ab','A',NULL,NULL,1),(14,'ramoun','hardgay',1,'hallo','7d793037a0760186574b0282f2f435e7','A',NULL,NULL,1),(15,'dptcom','youtube',1,'hello','7d793037a0760186574b0282f2f435e7','A',NULL,NULL,1),(16,'johm','legend',1,'little','43dd5461ea090b1115a4eaab4ee7c80e','A',NULL,NULL,1),(17,'wayne','lil',1,'tenwnw','3189934774aa880fa7fbf8da8f9e446d','A',NULL,NULL,1),(18,'bike','bakc',1,'worldwarz','598d4c200461b81522a3328565c25f7c','A',NULL,NULL,1),(19,'mariah','beautiful',2,'hahahaha','de2f15d014d40b93578d255e6221fd60','A',NULL,NULL,1),(20,'mariah','beautiful',2,'hahahahaw4','de2f15d014d40b93578d255e6221fd60','A',NULL,NULL,1),(21,'bacones','bacon',1,'hackathon','d78b6f30225cdc811adfe8d4e7c9fd34','A',NULL,NULL,1),(22,'Bj mcncb','zbzjccj',1,'messed','332d69e43466a23a1afde44e889f47f6','A',NULL,NULL,1),(23,'xjfkskzbx','qjdjffj',1,'skxncfmfn','76d80224611fc919a5d54f0ff9fba446','A',NULL,NULL,1),(24,'xjfkskzbx','qjdjffj',1,'skxncfmfwecn','76d80224611fc919a5d54f0ff9fba446','A',NULL,NULL,1);
 /*!40000 ALTER TABLE `parent` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -58,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-07-19  2:33:10
+-- Dump completed on 2013-07-19  8:25:16

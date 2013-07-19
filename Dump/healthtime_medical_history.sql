@@ -42,7 +42,7 @@ CREATE TABLE `medical_history` (
   PRIMARY KEY (`medical_history_id`),
   KEY `medical_parent_id_idx` (`parent_id`),
   CONSTRAINT `medical_parent_id` FOREIGN KEY (`parent_id`) REFERENCES `parent` (`parent_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -51,6 +51,7 @@ CREATE TABLE `medical_history` (
 
 LOCK TABLES `medical_history` WRITE;
 /*!40000 ALTER TABLE `medical_history` DISABLE KEYS */;
+INSERT INTO `medical_history` VALUES (1,18,0,0,0,0,0,0,0,0,0,0,0,0),(2,19,1,1,0,0,0,0,0,0,0,0,0,1),(3,20,1,0,0,0,0,0,0,0,0,0,0,0),(4,21,1,0,0,0,0,0,0,0,0,0,0,0),(5,22,1,0,0,0,0,0,0,0,0,0,0,0),(6,23,1,1,0,0,1,0,0,0,0,0,0,0),(7,24,0,1,1,1,1,1,1,1,1,1,1,0);
 /*!40000 ALTER TABLE `medical_history` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -63,4 +64,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-07-19  2:33:35
+-- Dump completed on 2013-07-19  8:25:42

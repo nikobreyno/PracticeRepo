@@ -26,9 +26,9 @@ DROP TABLE IF EXISTS `sharing`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sharing` (
   `sharing_id` int(11) NOT NULL AUTO_INCREMENT,
-  `from_parent_id` int(11) DEFAULT NULL,
-  `to_parent_id` int(11) DEFAULT NULL,
-  `to_child_id` int(11) DEFAULT NULL,
+  `from_family_id` int(11) DEFAULT NULL,
+  `to_family_id` int(11) DEFAULT NULL,
+  `child_id` int(11) DEFAULT NULL,
   `privilege` int(11) DEFAULT NULL,
   PRIMARY KEY (`sharing_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-07-19  2:32:57
+-- Dump completed on 2013-07-19  8:25:04

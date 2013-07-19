@@ -14,8 +14,9 @@ $oneparent->set_blood_type($_POST['blood_type']);
 $oneparent->set_email($_POST['email']);
 $oneparent->set_password($_POST['password']);
 
-if(add_parent($oneparent))
-	echo 'true';
-	else echo 'false';
+$result = add_parent($oneparent);
+	if(!empty($result))
+	echo $result;
+	else echo 'error';
 
 ?>
